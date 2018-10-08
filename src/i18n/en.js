@@ -1,0 +1,32 @@
+export default {
+    common : {
+        'home' :'首页',
+        'back' :'返回',
+        'next' :'Continue',
+        'confirm' :'确定',
+        'send' :'发送',
+        'submit' :'提交',
+        'subscrip' :'评论',
+        'rank' :'评分',
+        'rank_p' :'评价',
+
+        'start' :'开始',
+        'stop' :'停止',
+        'pause' :'暂停',
+        'download' :'下载',
+        'delete' :'删除',
+        'renew' :'更新',
+        'replace' :'替换',
+        'remove' :'移除',
+        'save' :'保存',
+        'export' :'导出',
+    },
+    pagination : {
+        'next' :'下一页',
+        'prew' :'上一页',
+        'next_icon' :'下一页',
+        'prew_icon' :'上一页',
+        'next_gh' :'下一节',
+        'prew_gh' :'上一节',
+    },
+};
