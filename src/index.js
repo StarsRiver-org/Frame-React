@@ -9,7 +9,7 @@ const forminit = {
     method: 'post',
     action: '',
     inputs: [
-        {name: 'name', value: '233', default: '', limit: 7,},
+        {name: 'name', value: '233', default: '', limit: 7,change:change},
         {name: 'work', type: 'textarea', value: '2018',change:change},
         {name: 'select', type: 'select', default: '0',
             opts: [
@@ -24,12 +24,11 @@ const forminit = {
 
 
 function submit(e){
-    alert('测试');
     console.log(e.map);
 }
 
 function change(e){
-    alert('测试');
+    console.log('233')
 }
 
 ReactDOM.render(<Form forminit={forminit} submit={submit} change={change}/>, document.getElementById('app'));

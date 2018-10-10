@@ -1,11 +1,17 @@
-/***************\
-  config loading
-\***************/
+/*-----------------
+|  config loading |
+-------------------
+| Get all configs of website
+|----------------------------------------------------------------------------------------------------------------------*/
+
 import Config from './config/config';
 
-/***************\
-  lang loading
-\***************/
+/*-----------------
+|   lang loading  |
+-------------------
+| Fetch languages contents
+|----------------------------------------------------------------------------------------------------------------------*/
+
 import zh_cn from './i18n/zh_cn';
 import zh_tw from './i18n/zh_tw';
 import de from './i18n/de';
@@ -14,19 +20,22 @@ import fr from './i18n/fr';
 import jp from './i18n/jp';
 const
     Langs = {
-        'zh_cn': zh_cn,
-        'zh_tw': zh_tw,
-        'de': de,
-        'en': en,
-        'fr': fr,
-        'jp': jp,
+        'zh_cn': {name:'汉语(简)', data:zh_cn,},
+        'zh_tw': {name:'汉语(繁)', data:zh_tw,},
+        'de': {name:'German', data:de,},
+        'en': {name:'English', data:en,},
+        'fr': {name:'French', data:fr,},
+        'jp': {name:'Japnese', data:jp,},
     },
-    Lang = Langs[Storage.lang ? Storage.lang : Config.lang]
+    Lang = Langs[Storage.lang ? Storage.lang : Config.lang].data
 ;
 
-/***************\
- calc length GBK
-\***************/
+/*-----------------
+| Calc length GBK |
+-------------------
+| Calculating the text code length
+|----------------------------------------------------------------------------------------------------------------------*/
+
 function strlen(val) {
     if(!val){
         return 0;
@@ -38,9 +47,12 @@ function strlen(val) {
     return len;
 }
 
-/***************\
-   cut the str
-\***************/
+/*-----------------
+|     Cut a str   |
+-------------------
+| Replace the prop of {substr} to fix the CodeLength and start limit
+|----------------------------------------------------------------------------------------------------------------------*/
+
 function substr(str, length, start = 0) {
     let res = '';
     if(str && length !== 0 && start < str.length){
@@ -62,12 +74,19 @@ function substr(str, length, start = 0) {
     return res;
 }
 
-/***************\
- create rand str
-\***************/
+/*-----------------
+| Create rand str |
+-------------------
+| Create randing string
+|----------------------------------------------------------------------------------------------------------------------*/
+
 
 function rand(length, type){
-    const num = '0123456789', letM = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', letm = 'abcdefghijklmnopqrstuvwxyz';
+    const
+        num = '0123456789',
+        letM = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        letm = 'abcdefghijklmnopqrstuvwxyz'
+    ;
 
     let arr = [] , str = '';
     switch (type) {
@@ -83,9 +102,12 @@ function rand(length, type){
     return str;
 }
 
-/***************\
-      Output
-\***************/
+/*-----------------
+|      Output     |
+-------------------
+| Export all the function
+|----------------------------------------------------------------------------------------------------------------------*/
+
 export {
     Config, // 配置文件
     Lang,   // 获取语言字符串函数
